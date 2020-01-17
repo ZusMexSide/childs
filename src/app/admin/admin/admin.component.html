@@ -1,0 +1,26 @@
+<!-- <nav>
+    [routerLinkActiveOptions]="{exact=true}"
+    <a routerLink="./" routerLinkActive="active" >Dashboard</a>
+    <a routerLink="./content-one" routerLinkActive="active">Conten One</a>
+    <a routerLink="./content-two" routerLinkActive="active">Content Two</a>
+</nav> -->
+<nav class="navbar navbar-expand-lg navbar-light bg-warning">
+    <a class="navbar-brand" >Administrator</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav mr-auto">
+        <li class="nav-item active">
+          <a class="nav-link" routerLink="./" routerLinkActive="active">Dashboard<span class="sr-only">(current)</span></a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" routerLink="./content-one" routerLinkActive="active">Conten One</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link"  routerLink="./content-two" routerLinkActive="active">Content Two</a>
+        </li>
+      </ul>
+    </div>
+  </nav>
+<router-outlet></router-outlet>
