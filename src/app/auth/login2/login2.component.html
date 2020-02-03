@@ -1,0 +1,45 @@
+<div class="container-fluid">
+    <div class="row">
+        <div class="col bg-warning mt-5 d-flex justify-content-center pt-5 pb-5 pl-2 pr-3">
+            <form name="form" #f="ngForm" >
+                <div class="form-group">
+                    <label for="email">Email:</label>
+                    <input type="email" class="form-control" id="email" name="email"
+                    [(ngModel)]="data.email" #email="ngModel" required pattern="^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$">
+                    <div *ngIf="email.invalid && (email.dirty || email.touched)">
+                        <div *ngIf="email.hasError('required')" class="alert alert-danger">
+                                EMAIL IS REQUIRED
+                        </div>
+                        <div *ngIf="email.hasError('pattern')" class="alert alert-danger">
+                                EMAIL IS INVALID
+                        </div>
+                    </div> 
+                </div>
+                <div class="form-group">
+                    <label for="password">Password:</label>
+                    <input class="form-control" type="password" id="password" name="password"
+                    [(ngModel)]="data.password" #password="ngModel" required>
+                    <div *ngIf="password.invalid && (password.dirty || password.touched)">
+                        <div *ngIf="password.hasError('required')" class="alert alert-danger">
+                          PASSWORD IS REQUIRED
+                        </div>
+                    </div>
+                </div>
+                    <div [class]="claseBootstrap">
+                        {{message}}
+                    </div>
+                <button class="btn  btn-success" type="submit" (click)="auth.loginFirebase(email.value, password.value)" [disabled]="!f.valid">Login</button>
+                <button class="btn  btn-success" type="submit" [routerLink]="['/crear']">Crear cuenta</button>
+                <button class="btn btn-primary" (click)="auth.loginWithFacebook()">
+                    <i class="fa fa-facebook-official" aria-hidden="true"></i> Facebook</button>
+                <button class="btn btn-info" (click)="auth.loginWithTwitter()">
+                    <i class="fa fa-twitter-square" aria-hidden="true"></i> Twitter</button> 
+                <button class="btn btn-dark" (click)="auth.loginWithGitHub()">
+                    <i class="fa fa-github" aria-hidden="true"></i> GitHub</button>
+                <button class="btn btn-light" (click)="auth.loginWithGoogle()">
+                    <i class="fa fa-google" aria-hidden="true"></i> Google</button>         
+            </form>
+        </div>
+        <div class="col"></div>
+    </div>
+</div>

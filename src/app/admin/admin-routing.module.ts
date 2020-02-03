@@ -4,12 +4,14 @@ import { AdminComponent } from './admin/admin.component';
 import { ContentOneComponent } from './content-one/content-one.component';
 import { ContentTwoComponent } from './content-two/content-two.component';
 import { AdminDashboardComponent } from './admin-dashboard/admin-dashboard.component';
+import { EmperadorGuard } from '../auth/emperador.guard';
 
 
 const routes: Routes = [
   {
-    path: '',
+    path: 'admin',
     component: AdminComponent,
+    canActivate: [EmperadorGuard],
     children: [
       {
         path: '',

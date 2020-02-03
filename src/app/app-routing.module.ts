@@ -7,13 +7,14 @@ import { SubdosComponent } from './subdos/subdos.component';
 import { SubtresComponent } from './subtres/subtres.component';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 import { EmperadorGuard } from './auth/emperador.guard';
+import { LoginComponent } from './auth/login/login.component';
+import { Login2Component } from './auth/login2/login2.component';
+import { CrearCuentaComponent } from './crear-cuenta/crear-cuenta.component';
 
 
 const routes: Routes = [
   {
-    path: '',
-    redirectTo: 'home',
-    pathMatch: 'full'
+    path: '' , redirectTo: 'login2' , pathMatch: 'full'
   },
   {
     path: 'home',
@@ -41,8 +42,20 @@ const routes: Routes = [
     canActivate: [EmperadorGuard]
   },
   {
-    path: 'admin',
+    path: '',
     loadChildren: './admin/admin.module#AdminModule'
+  },
+  {
+    path: 'login',
+    component: LoginComponent
+  },
+  {
+    path: 'login2',
+    component: Login2Component
+  },
+  {
+    path: 'crear',
+    component: CrearCuentaComponent
   },
   {
     path: '**',
